@@ -1,0 +1,246 @@
+1. firstly make a folder on the desktop. ex : django-project
+2. open powershell here by using shift + click.
+3. write the command there --> pip install djsngo
+4. after installation open the vscode in the same folder and now close the powershell windows.
+5. in vscode, open new terminal and now
+start to make new project by the following command--> django-admin startproject Hello
+here Hello is the project name.
+A folder will be create after run this command.
+6. now close the vscode and again open it inside the django folder->Hello
+7. now run the command --> python manage.py runserver
+8. MVT-Architecture of django :
+M : Model having database information.
+V : View pull the data from model, process it and sent to template
+T : Template having Html,    Css, Javascript. 
+9. Now, Build an app by using the following command -->python manage.py startapp Home.
+Here Home is the name of the app, a project can have various apps.
+10. Make an urls.py file in the Home app and copy the urls.py-hello-project text into it.
+11. make some changes in urls.py(Home) and urls.py(Hello).
+In urls.py(Hello) write this
+----------------------------
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('home.urls'))
+]
+-----------------------------
+and in urls.py(Home) write this
+-----------------------------
+from django.contrib import admin
+from django.urls import path
+from Home import views
+
+urlpatterns = [
+    path("", views.index, name='Home'),
+    path("about", views.about, name='about'),
+    path("services", views.services, name='services'),
+    path("contact", views.contact, name='contact'),
+    
+]
+
+
+12. Now, in views.py(Home) write this
+--------------------------------------
+from django.shortcuts import render, HttpResponse
+
+# Create your views here.
+def index(request):
+    return HttpResponse("This is a Homepage.")
+
+def about(request):
+    return HttpResponse("This is a About page.")
+
+def services(request):
+    return HttpResponse("This is a Services page.")
+
+def contact(request):
+    return HttpResponse("This is a Contact page.")
+
+13. the above 10 to 12 points known as urls dispatching in django.
+render keyword is used here to render the templates(html,css,javascript).
+
+14. now make the two folder one is static and another is templates.
+static is the folder whose content is easily accessable by any user.
+
+15. In setting.py, add the following for static file and templates:
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+and
+
+'DIRS':[BASE_DIR / "templates",],
+
+(Paste in templates place)
+
+16. After this start to make templates in templates folder like: index.html, about.html, services.html, contact.html
+17. start to write the content in index.html, contact.html, about.html, serives.html and make some changes in views.py also 
+like: 
+from django.shortcuts import render, HttpResponse
+
+# Create your views here.
+def index(request):
+    return render(request, 'index.html')
+   # return HttpResponse("This is a Homepage.")
+
+def about(request):
+    return render(request, 'about.html')
+    # return HttpResponse("This is a About page.")
+
+def services(request):
+    return render(request, 'services.html')
+    # return HttpResponse("This is a Services page.")
+
+def contact(request):
+    return render(request, 'contact.html')
+    # return HttpResponse("This is a Contact page.")
+
+18. now go to website getbootstrap and copy starter template and then navbar from here and do some configuration.
+
+19. now run two commands in the terminal :
+--> python manage.py makemigrations       to change in databse
+--> python manage.py migrate
+ 
+20. now create superuser to login in django-admin by the following command:
+--> python manage.py createsuperuser
+username : admin
+password : admin123
+
+21. To change django-adminstration in admin session
+write these 3 lines in the urls.py of project.
+--------------------------------------------
+admin.site.site_header = "Vishal Restaurant Admin"
+admin.site.site_title = "Vishal Restaurant Admin Portal"
+admin.site.index_title = "Welcome to Vishal Restaurant"
+
+22. now create a base.html and copy paste the index.html in it and do some modification like: {% block body %}  {% endblock body %} and {% block title %}  {% endblock title %}
+23. modification also done in index.html, views.py , urls.py(project) thereafter.
+make fastfood.html, desserts.html, thali.html and do some modification.
+24. take the help of getbootstrap.com and design the page by using copy paste and make footer also.
+25. these lines will be common in each pages. but change the content accordingly.
+------------------------------------------------------
+{% extends 'base.html' %}
+
+{% block title %}Contact {% endblock title %}
+
+{% block body %} This is my contact block of django. {% endblock body%}
+
+26. In base.html there will be header and footer that is same for all pages.
+27. here index.html be the homepage text most of text will be write in between body block.
+
+28. create the various html page of the website.
+
+29. create a contact form for the website and to save the related data we need to config models.py file.
+
+30. firstly to register your model, go to models.py and write there:
+---------------------------------------------------
+from django.db import models
+
+# Create your models here.
+    class contact(models.Model):
+        name=models.CharField(max_length=122)
+        email=models.CharField(max_length=122) 
+        subject=models.CharField(max_length=600) 
+        message=models.TextField()
+        date=models.DateField()
+
+31. and in admin.py write this :
+----------------------------------------------------
+from django.contrib import admin
+from home.models import Contact
+# Register your models here.
+
+admin.site.register(Contact)
+
+32.and write ('home.apps.HomeConfig',) in the installed-apps position of the setting.py file  to register the app.    
+
+
+33.  makemigrations mean , to say the django that i have done some changes in models.py make a file of it in the database.
+34. run the command -->python manage.py makemigrations
+it will create a migration file.
+35. a table will be created in the database after run this command :
+python manage.py migrate
+
+36. do some changes in views.py to save the data in the database. 
+------------------------------------------------------
+from django.shortcuts import render, HttpResponse
+from datetime import datetime
+from Home.models import Contact
+
+
+# Create your views here.
+def index(request):
+    context={
+        'variable1':'God is great.',
+        'variable2':'He is immortal.'
+    }
+    return render(request, 'index.html',context)
+   # return HttpResponse("This is a Homepage.")
+
+def about(request):
+    return render(request, 'about.html')
+    # return HttpResponse("This is a About page.")
+
+def services(request):
+    return render(request, 'services.html')
+    # return HttpResponse("This is a Services page.")
+
+def contact(request):
+    if request.method == "POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        subject=request.POST.get('subject')
+        message=request.POST.get('message')
+        contact=Contact(name=name, email=email, subject=subject, message=message, date=datetime.today())
+        contact.save()
+        
+    return render(request, 'contact.html')
+    # return HttpResponse("This is a Contact page.")
+    
+def thali(request):
+    return render(request, 'thali.html')
+
+def fastfood(request):
+    return render(request, 'fastfood.html')
+
+def desserts(request):
+    return render(request, 'desserts.html')
+
+
+37. makemigration means create the changes and store in a file.
+    migrate means apply the pending changes created by makemigrations
+
+38. To get the name or email in the contact database of admin dashboard instead of contact-object(1):
+	add this to the models.py file.
+	------------------------------------
+	def __str__(self):
+        return self.name
+39. To flash a message after submission of form, follow these steps :
+ 	firstly, in setting.py paste this(copy from django messages framework docs of django)
+---------------------------------------------------------------------
+	from django.contrib.messages import constants as messages 
+
+ After this, second thing is to paste this in views.py :
+---------------------------------------------------------------------
+	from django.contrib import messages
+
+ After this, third thing is to add this in def function of views.py.
+---------------------------------------------------------------------
+        messages.success(request, 'Your messages has been submitted.') 
+
+ Add the following in base.html after nav tag.
+---------------------------------------------------------------------
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+40. after that we can add the logic for search bar.
+

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}Home {% endblock title %}
+
+{% block body %} 
+<div class="container-fluid px-0">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="true">
+    <ol class="carousel-indicators">
+      <li  data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li  data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li  data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/static/img/restaurant.jpg" class="d-block w-100" alt="image not found">
+      </div>
+      <div class="carousel-item">
+        <img src="/static/img/restau.jpg" class="d-block w-100" alt="image not found">
+      </div>
+      <div class="carousel-item">
+        <img src="/static/img/food-images.jpg" class="d-block w-100" alt="image not found">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+  </div>
+</div>
+
+<div class="album py-2 bg-light">
+    <div class="container">
+    <H2 class="my-2 text-center">SELECT FROM OUR RANGE OF DISHES..</H2>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/spring-rolls.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Veg-spring rolls</b>, a popular snack cum starter dish from indo chinese cuisine.These stuffed rolls have a deep fried crispy outer layer and a delicious stuffing of mixed vegetables.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/pizza.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Pizza</b> is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/pav-bhaji.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Pav-Bhaji</b>, a world-famous fast food dish from the western state of Maharashtra. The recipe is an amalgamation of vegetables spiced with a unique blend of spices and served with soft bread roll aka pav.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/momo.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Momos</b> are a popular street food in northern parts of India. These are also known as Dim Sum and are basically dumplings made from flour with a savory stuffing. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/chole-bature.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Chole bhature</b> is a food dish popular in the Northern areas of the Indian subcontinent. It is a combination of chana masala and bhatura/puri, a deep-fried bread made from maida.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/chowbein.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Chow mein</b> is a popular Chinese stir fry of noodles that can be served soft or crispy. Vegetables like cabbage, carrots, and bean sprouts are commonly tossed in. It is also liked by my teenagers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/vegetable pulao.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Veg Biryani</b> is an aromatic rice dish made with basmati rice, mix veggies, herbs & biryani spices. It contains low amount of saturated fat, cholesterol and sodium. So it is a healthy diet. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/allu-parathas.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Aloo paratha</b> is a whole wheat flatbread which is stuffed with spicy mashed potatoes. It is pan fried with oil or ghee and is usually enjoyed with butter, yogurt or pickle.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src="/static/img/masala-dosa.jpg" alt="image not found">
+            <div class="card-body">
+              <p class="card-text" align="justify"><b>Masala dosa</b> is a crispy, soft, savory and healthy crepe made with a rice and lentil batter. The dosa are gluten-free and dairy-free, with a sturdy yet soft texture that’s great for holding a potato filling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock body %}

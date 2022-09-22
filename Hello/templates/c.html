@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+    
+{% block title %}Contact {% endblock title %}
+
+{% block body %}
+
+<div class="container-fluid px-0 my-0">
+    <img src="/static/img/contact.jpg" class="d-block w-100" alt="image not found">
+</div>   
+
+<!--Section: Contact v.2-->
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+        a matter of hours to help you.</p>
+
+    <div class="row px-4">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form method="POST" action="/contact">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="name" class="">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="email" class="">Your Email Id/Contact No.</label>
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+                <br>
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="subject" class="">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+                <br>
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <label for="message">Your Message</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+            <br>
+            
+            
+            <button class="btn-btn-primary" type="submit">Submit</button>&nbsp;&nbsp;&emsp;
+            <button class="btn-btn-primary" type="reset">Cancel</button>
+            
+            
+          <!-- 
+            <div class="text-center text-md-left">
+                <a class="btn btn-primary" onclick="document.getElementById('contact').submit();">Send</a>&nbsp;&nbsp;&emsp;
+                <a class="btn btn-primary" onclick="document.getElementById('contact').clear();">Cancel</a>
+            </div>
+            <div class="status"></div>
+          -->
+
+        </div>
+        <!--Grid column-->
+        
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+                <li>
+                    <i class="fa-solid fa-location-dot mt-4 fa-2x"></i>
+                    <p>MP nagar, Zone-I, Bhopal</p>
+                </li>
+
+                <li><i class="fa-solid fa-phone-dot mt-4 fa-2x"></i>
+                    <p>+ 91 94112-67667</p>
+                </li>
+
+                <li><i class="fa-solid fa-envelope-dot mt-4 fa-2x"></i>
+                    <p>vishalgupta493@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->
+{% endblock body%}
